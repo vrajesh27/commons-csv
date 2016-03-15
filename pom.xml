@@ -183,7 +183,7 @@ CSV files of various types.
         <configuration>
 			<parallel>classesAndMethods</parallel>
 			<useUnlimitedThreads>true</useUnlimitedThreads>
-			<parallelTestsTimeoutForcedInSeconds>2</parallelTestsTimeoutForcedInSeconds>
+			<parallelTestsTimeoutForcedInSeconds>10</parallelTestsTimeoutForcedInSeconds>
           <excludes>
             <exclude>**/perf/PerformanceTest.java</exclude>
           </excludes>
