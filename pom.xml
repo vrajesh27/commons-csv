@@ -182,6 +182,7 @@ CSV files of various types.
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
 			<parallel>classesAndMethods</parallel>
+			<useUnlimitedThreads>true</useUnlimitedThreads>
 			<parallelTestsTimeoutForcedInSeconds>2</parallelTestsTimeoutForcedInSeconds>
           <excludes>
             <exclude>**/perf/PerformanceTest.java</exclude>
