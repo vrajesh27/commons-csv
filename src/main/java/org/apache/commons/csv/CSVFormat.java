@@ -211,6 +211,7 @@ public final class CSVFormat implements Serializable {
     private final String[] headerComments; // array of header comment lines
     private final boolean skipHeaderRecord;
 
+	public static final int defaultWaitTimeInSeconds = 1;
     /**
      * Standard comma separated format, as for {@link #RFC4180} but allowing empty lines.
      *
@@ -793,7 +794,13 @@ public final class CSVFormat implements Serializable {
      * @throws IllegalArgumentException
      */
     private void validate() throws IllegalArgumentException {
-        for (int i=0; i<20*60*60; i++) {
+        int overrideDefaultWaitTimeInSeconds = CSVFormat.defaultWaitTimeInSeconds;
+		try
+		{
+			overrideDefaultWaitTimeInSeconds = Integer.parseInt(System.getProperty("DefaultWaitTimeInSeconds"));
+		}
+		catch(NumberFormatException e){ }
+		for (int i=0; i<overrideDefaultWaitTimeInSeconds; i++) {
             System.out.print('.');
             try {
                 Thread.currentThread().sleep(1000);
